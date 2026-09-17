@@ -104,11 +104,23 @@ body{
   letter-spacing:.4px;
 }
 .logo-mark{
-  width:38px;height:38px;border-radius:12px;
-  display:grid;place-items:center;
-  background:linear-gradient(135deg,var(--green),#0b9c4e);
-  color:#031008;
+  width:38px;
+  height:38px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  background:#0b1510;
   box-shadow:0 0 30px rgba(53,242,123,.2);
+}
+
+.logo-mark img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:contain;
+  border-radius:12px;
 }
 .logo small{
   display:block;
@@ -143,6 +155,565 @@ body{
 .toast strong{display:block;margin-bottom:3px}
 @keyframes toastIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 
+/* =========================================================
+   PAGE 0 — WEBSITE INTRODUCTION
+========================================================= */
+
+#pageIntro{
+  min-height:100vh;
+  position:relative;
+  overflow:hidden;
+  display:grid;
+  place-items:center;
+  padding:30px 20px;
+  background:
+    radial-gradient(circle at 15% 15%,rgba(53,242,123,.10),transparent 30%),
+    radial-gradient(circle at 85% 80%,rgba(22,201,104,.07),transparent 35%),
+    #050807;
+}
+
+.intro-bg{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    linear-gradient(rgba(53,242,123,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(53,242,123,.025) 1px,transparent 1px);
+  background-size:55px 55px;
+  mask-image:linear-gradient(to bottom,#000,transparent 90%);
+}
+
+.intro-glow{
+  position:absolute;
+  width:420px;
+  height:420px;
+  border-radius:50%;
+  background:rgba(53,242,123,.07);
+  filter:blur(90px);
+  right:-120px;
+  top:-120px;
+  pointer-events:none;
+}
+
+.intro-container{
+  position:relative;
+  z-index:2;
+  width:min(1080px,100%);
+}
+
+.intro-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  margin-bottom:65px;
+}
+
+.intro-brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.intro-brand-mark{
+  width:44px;
+  height:44px;
+  border-radius:13px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(145deg,#35f27b,#16c968);
+  color:#031008;
+  font-size:18px;
+  font-weight:950;
+  box-shadow:0 0 30px rgba(53,242,123,.18);
+}
+
+.intro-brand-text{
+  font-size:14px;
+  font-weight:900;
+  letter-spacing:.7px;
+}
+
+.intro-brand-text small{
+  display:block;
+  margin-top:3px;
+  color:var(--muted);
+  font-size:9px;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+}
+
+.intro-status{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 12px;
+  border:1px solid rgba(53,242,123,.12);
+  background:rgba(53,242,123,.04);
+  border-radius:999px;
+  color:#9ac5a8;
+  font-size:10px;
+}
+
+.intro-status-dot{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--green);
+  box-shadow:0 0 12px var(--green);
+}
+
+.intro-hero{
+  max-width:850px;
+}
+.intro-hero-image{
+  float:right;
+  width:300px;
+  max-width:38%;
+  height:auto;
+  margin:8px 0 20px 35px;
+  border-radius:22px;
+  object-fit:cover;
+  filter:drop-shadow(0 20px 45px rgba(0,0,0,.35));
+  animation:introImageFloat 4s ease-in-out infinite;
+}
+
+@keyframes introImageFloat{
+  0%,100%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-10px);
+  }
+}
+.intro-eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:7px 11px;
+  border:1px solid rgba(53,242,123,.14);
+  background:rgba(53,242,123,.04);
+  border-radius:999px;
+  color:#9fe6b5;
+  font-size:10px;
+  font-weight:850;
+  letter-spacing:1.2px;
+  text-transform:uppercase;
+  margin-bottom:22px;
+}
+
+.intro-title{
+  font-size:clamp(42px,7vw,82px);
+  line-height:.96;
+  letter-spacing:-4px;
+  font-weight:950;
+  max-width:900px;
+}
+
+.intro-title span{
+  color:var(--green);
+}
+
+.intro-description{
+  max-width:690px;
+  margin-top:25px;
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.75;
+}
+
+.intro-actions{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-top:32px;
+  flex-wrap:wrap;
+}
+
+.intro-start-btn{
+  min-width:175px;
+  padding:14px 22px;
+  border:0;
+  border-radius:12px;
+  background:linear-gradient(135deg,#35f27b,#16c968);
+  color:#031008;
+  font-size:13px;
+  font-weight:950;
+  box-shadow:0 12px 35px rgba(53,242,123,.15);
+  transition:.2s ease;
+}
+
+.intro-start-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 16px 40px rgba(53,242,123,.22);
+}
+
+.intro-note{
+  color:#657269;
+  font-size:10px;
+}
+
+.intro-features{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-top:60px;
+}
+
+.intro-feature{
+  min-height:135px;
+  padding:19px;
+  background:rgba(255,255,255,.025);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:16px;
+  transition:.2s ease;
+}
+
+.intro-feature:hover{
+  border-color:rgba(53,242,123,.18);
+  transform:translateY(-2px);
+}
+
+.intro-feature-icon{
+  width:34px;
+  height:34px;
+  display:grid;
+  place-items:center;
+  border-radius:10px;
+  background:rgba(53,242,123,.07);
+  border:1px solid rgba(53,242,123,.10);
+  color:var(--green);
+  font-weight:900;
+  margin-bottom:15px;
+}
+
+.intro-feature b{
+  display:block;
+  font-size:12px;
+  margin-bottom:6px;
+}
+
+.intro-feature span{
+  display:block;
+  color:var(--muted);
+  font-size:10px;
+  line-height:1.6;
+}
+
+.intro-footer{
+  margin-top:38px;
+  color:#536058;
+  font-size:9px;
+  line-height:1.6;
+}
+
+@media(max-width:800px){
+
+  .intro-top{
+    margin-bottom:45px;
+  }
+
+  .intro-features{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .intro-title{
+    letter-spacing:-2.5px;
+  }
+}
+
+
+@media(max-width:520px){
+
+  #pageIntro{
+    padding:22px 16px;
+  }
+
+  .intro-top{
+    margin-bottom:38px;
+  }
+
+  .intro-status{
+    display:none;
+  }
+
+  .intro-title{
+    font-size:44px;
+    letter-spacing:-2px;
+  }
+ .intro-hero{
+  position:relative;
+  isolation:isolate;
+}
+
+.intro-hero-image{
+  position:absolute;
+  top:50%;
+  right:-25px;
+  width:320px;
+  max-width:90%;
+  height:320px;
+  object-fit:cover;
+  margin:0;
+  border-radius:28px;
+  opacity:.10;
+  filter:blur(.3px) drop-shadow(0 20px 40px rgba(0,0,0,.25));
+  transform:translateY(-50%);
+  z-index:-1;
+  pointer-events:none;
+  animation:introImageFloatMobile 6s ease-in-out infinite;
+}
+
+@keyframes introImageFloatMobile{
+  0%,100%{
+    transform:translateY(-50%);
+  }
+
+  50%{
+    transform:translateY(calc(-50% - 8px));
+  }
+}
+.intro-eyebrow,
+.intro-title,
+.intro-description,
+.intro-actions{
+  position:relative;
+  z-index:2;
+}
+
+  .intro-description{
+    font-size:13px;
+  }
+
+  .intro-features{
+    grid-template-columns:1fr;
+    margin-top:42px;
+  }
+
+  .intro-feature{
+    min-height:auto;
+  }
+
+  .intro-start-btn{
+    width:100%;
+  }
+
+  .intro-note{
+    width:100%;
+  }
+}
+
+/* =========================================================
+   PAGE 0 — SCROLLING IMAGE SHOWCASE
+========================================================= */
+
+#pageIntro{
+  display:block;
+  min-height:100vh;
+  overflow:visible;
+}
+
+#pageIntro .intro-container{
+  width:min(1180px,100%);
+  margin:0 auto;
+}
+
+.intro-showcase{
+  position:relative;
+  width:100%;
+  margin-top:clamp(50px,8vw,110px);
+  padding-bottom:8vh;
+}
+
+.showcase-section{
+  position:relative;
+  display:grid;
+  grid-template-columns:minmax(0, .9fr) minmax(0, 1.1fr);
+  align-items:center;
+  gap:clamp(28px,6vw,90px);
+  min-height:100vh;
+  padding:clamp(40px,7vw,100px) 0;
+  border-top:1px solid rgba(255,255,255,.07);
+  isolation:isolate;
+}
+
+.showcase-copy{
+  position:relative;
+  z-index:2;
+  max-width:480px;
+  opacity:.72;
+  transform:translateY(24px);
+  transition:opacity .55s ease, transform .65s ease;
+}
+
+.showcase-section.is-active .showcase-copy{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.showcase-label{
+  display:inline-block;
+  margin-bottom:20px;
+  color:var(--green);
+  font-size:11px;
+  font-weight:850;
+  letter-spacing:2px;
+}
+
+.showcase-copy h2{
+  margin:0;
+  font-size:clamp(34px,5vw,66px);
+  line-height:1.02;
+  letter-spacing:-2.5px;
+  font-weight:950;
+}
+
+.showcase-copy h2 span{
+  color:var(--green);
+}
+
+.showcase-copy p{
+  max-width:440px;
+  margin-top:22px;
+  color:var(--muted);
+  font-size:clamp(14px,1.3vw,17px);
+  line-height:1.8;
+}
+
+.showcase-link{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  margin-top:26px;
+  color:var(--green);
+  font-size:14px;
+  font-weight:800;
+  text-decoration:none;
+}
+
+.showcase-link span{
+  font-size:22px;
+  transition:transform .25s ease;
+}
+
+.showcase-link:hover span{
+  transform:translateX(5px);
+}
+
+.showcase-visual{
+  position:sticky;
+  top:12vh;
+  height:76vh;
+  min-height:360px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  perspective:1200px;
+}
+
+.showcase-image-wrap{
+  position:relative;
+  width:min(100%,680px);
+  height:min(100%,650px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transform:translate3d(0,35px,0) scale(.82);
+  opacity:.25;
+  transition:
+    transform .8s cubic-bezier(.2,.75,.25,1),
+    opacity .65s ease;
+  will-change:transform,opacity;
+}
+
+.showcase-section.is-active .showcase-image-wrap{
+  transform:translate3d(0,0,0) scale(1);
+  opacity:1;
+  animation:showcaseFloat 5s ease-in-out infinite;
+}
+
+.showcase-image{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  filter:drop-shadow(0 25px 55px rgba(0,0,0,.35));
+  user-select:none;
+  -webkit-user-drag:none;
+}
+
+/* The outgoing image smoothly minimizes */
+.showcase-section.is-past .showcase-image-wrap{
+  transform:translate3d(0,-45px,0) scale(.58);
+  opacity:0;
+}
+
+@keyframes showcaseFloat{
+  0%,100%{translate:0 0}
+  50%{translate:0 -12px}
+}
+
+/* Tablet and mobile layout */
+@media(max-width:800px){
+  .showcase-section{
+    grid-template-columns:1fr;
+    gap:18px;
+    min-height:auto;
+    padding:65px 0 80px;
+  }
+
+  .showcase-copy{
+    max-width:620px;
+  }
+
+  .showcase-visual{
+    position:relative;
+    top:auto;
+    height:52vh;
+    min-height:280px;
+    max-height:520px;
+  }
+
+  .showcase-image-wrap{
+    width:100%;
+  }
+
+  .showcase-section.is-active .showcase-image-wrap{
+    animation:showcaseFloat 5s ease-in-out infinite;
+  }
+}
+
+@media(max-width:520px){
+  .intro-showcase{
+    margin-top:45px;
+  }
+
+  .showcase-section{
+    padding:48px 0 60px;
+  }
+
+  .showcase-copy h2{
+    letter-spacing:-1.5px;
+  }
+
+  .showcase-visual{
+    height:42vh;
+    min-height:240px;
+  }
+}
+
+/* Respect reduced-motion accessibility settings */
+@media(prefers-reduced-motion:reduce){
+  .showcase-image-wrap,
+  .showcase-copy{
+    transition:none!important;
+  }
+
+  .showcase-section.is-active .showcase-image-wrap{
+    animation:none!important;
+  }
+}
 /* =========================
    PAGE 1 — ENTRY GATE
 ========================= */
@@ -963,6 +1534,105 @@ td{color:#b9c4bc}
 
 }
 
+/* =========================================================
+   DEPOSIT PAYMENT METHOD SELECTOR
+========================================================= */
+
+.deposit-method-selector{
+  display:grid;
+  gap:12px;
+}
+
+.deposit-method-option{
+  width:100%;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:16px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:15px;
+  background:rgba(255,255,255,.025);
+  color:#fff;
+  text-align:left;
+  cursor:pointer;
+  transition:.2s ease;
+}
+
+.deposit-method-option:hover{
+  border-color:rgba(53,242,123,.35);
+  background:rgba(53,242,123,.035);
+  transform:translateY(-1px);
+}
+
+.deposit-method-icon{
+  width:44px;
+  height:44px;
+  flex:0 0 44px;
+  display:grid;
+  place-items:center;
+  border-radius:12px;
+  background:rgba(53,242,123,.08);
+  color:var(--green);
+  font-size:20px;
+  font-weight:900;
+}
+
+.deposit-method-content{
+  flex:1;
+  min-width:0;
+}
+
+.deposit-method-title{
+  font-size:13px;
+  font-weight:900;
+  color:#fff;
+}
+
+.deposit-method-description{
+  margin-top:4px;
+  color:var(--muted);
+  font-size:10px;
+  line-height:1.5;
+}
+
+.deposit-method-arrow{
+  color:#69756d;
+  font-size:18px;
+}
+
+.deposit-coming-soon{
+  text-align:center;
+  padding:30px 20px;
+}
+
+.deposit-coming-soon-icon{
+  width:60px;
+  height:60px;
+  margin:0 auto 16px;
+  display:grid;
+  place-items:center;
+  border-radius:18px;
+  background:rgba(53,242,123,.08);
+  color:var(--green);
+  font-size:26px;
+}
+
+.deposit-coming-soon h3{
+  margin:0;
+  font-size:17px;
+}
+
+.deposit-coming-soon p{
+  margin:8px auto 0;
+  max-width:350px;
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.6;
+}
+
+.deposit-back-btn{
+  margin-top:18px;
+}
 /* =========================
    LOADING SWITCH
 ========================= */
@@ -1880,11 +2550,278 @@ td{color:#b9c4bc}
   border-color:rgba(24,229,138,.28);
   color:#18e58a;
 }
+html,
+body{
+  overflow-x:hidden;
+}
+
+#pageIntro{
+  overflow-x:hidden;
+  width:100%;
+  max-width:100%;
+}
+.deposit-method-logo {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+/* withdrawal method logos */
+.deposit-method-icon img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+
+/* withdrawal method icon container */
+.deposit-method-icon {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+/* keep withdrawal logos clean on small screens */
+@media (max-width: 600px) {
+    .deposit-method-icon {
+        width: 46px;
+        height: 46px;
+    }
+
+    .deposit-method-icon img {
+        width: 48px;
+        height: 48px;
+    }
+}
 </style>
 </head>
 
 <body>
 
+  <!-- =========================================================
+     PAGE 0 — WEBSITE INTRODUCTION
+========================================================= -->
+<section id="pageIntro" class="page">
+
+  <div class="intro-bg"></div>
+  <div class="intro-glow"></div>
+
+  <div class="intro-container">
+
+    <div class="intro-top">
+
+      <div class="intro-brand">
+        <div class="logo-mark">
+  <img src="HUBLOGO.png" alt="HubDeriv Logo">
+</div>
+
+        <div class="intro-brand-text">
+          DERIV BINARY
+          <small>PRO TERMINAL</small>
+        </div>
+      </div>
+
+      <div class="intro-status">
+        <span class="intro-status-dot"></span>
+        Professional Analysis Environment
+      </div>
+
+    </div>
+
+
+    <div class="intro-hero">
+
+      <div class="intro-eyebrow">
+        <span>●</span>
+        Advanced Binary Market Analysis
+      </div>
+      <img
+    src="hub006.jpeg"
+    alt="Market Analysis"
+    class="intro-hero-image">
+
+      <h1 class="intro-title">
+        Analyze the market.<br>
+        <span>Understand the digits.</span>
+      </h1>
+
+      <p class="intro-description">
+        A professional binary-analysis workspace designed to help users
+        observe synthetic digit markets, review market statistics, study
+        digit distributions, and evaluate trading strategies in a structured
+        environment.
+      </p>
+
+
+      <div class="intro-actions">
+
+        <button
+          type="button"
+          class="intro-start-btn"
+          id="introGetStartedBtn">
+          Get Started
+        </button>
+
+        <span class="intro-note">
+          Access is restricted to authorized users.
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <div class="intro-features">
+
+      <div class="intro-feature">
+
+        <div class="intro-feature-icon">01</div>
+
+        <b>Digit Analytics</b>
+
+        <span>
+          Review digit frequency, distributions and recent market activity
+          through the analysis interface.
+        </span>
+
+      </div>
+
+
+      <div class="intro-feature">
+
+        <div class="intro-feature-icon">02</div>
+
+        <b>Market Analysis</b>
+
+        <span>
+          Monitor supported synthetic instruments and study observed
+          market data through the terminal.
+        </span>
+
+      </div>
+
+
+      <div class="intro-feature">
+
+        <div class="intro-feature-icon">03</div>
+
+        <b>Strategy Workspace</b>
+
+        <span>
+          Configure analysis parameters and evaluate strategies using the
+          available demo environment.
+        </span>
+
+      </div>
+
+
+      <div class="intro-feature">
+
+        <div class="intro-feature-icon">04</div>
+
+        <b>Professional Terminal</b>
+
+        <span>
+          Access a structured workspace combining analytics, contracts,
+          account tools and trading history.
+        </span>
+
+      </div>
+
+    </div>
+
+
+<!-- SCROLLING PRODUCT SHOWCASE -->
+<div class="intro-showcase">
+
+  <section class="showcase-section" data-showcase>
+    <div class="showcase-copy">
+      <span class="showcase-label">MARKET ACCESS</span>
+      <h2>Explore the <span>markets.</span></h2>
+      <p>Discover a focused trading environment built for market observation, analysis and informed decisions.</p>
+      <a href="#pageIntro" class="showcase-link">Explore features <span>→</span></a>
+    </div>
+    <div class="showcase-visual">
+      <div class="showcase-image-wrap">
+        <img src="hub001.jpeg" alt="Market platform preview" class="showcase-image">
+      </div>
+    </div>
+  </section>
+
+  <section class="showcase-section" data-showcase>
+    <div class="showcase-copy">
+      <span class="showcase-label">ANALYTICS</span>
+      <h2>Read the <span>market.</span></h2>
+      <p>Review market activity and explore analytical tools in a clean, structured workspace.</p>
+      <a href="#pageIntro" class="showcase-link">Discover analytics <span>→</span></a>
+    </div>
+    <div class="showcase-visual">
+      <div class="showcase-image-wrap">
+        <img src="hub002.jpeg" alt="Market analytics preview" class="showcase-image">
+      </div>
+    </div>
+  </section>
+
+  <section class="showcase-section" data-showcase>
+    <div class="showcase-copy">
+      <span class="showcase-label">MARKET INSIGHTS</span>
+      <h2>Understand the <span>digits.</span></h2>
+      <p>Explore digit statistics and recent observations through your analysis interface.</p>
+      <a href="#pageIntro" class="showcase-link">View insights <span>→</span></a>
+    </div>
+    <div class="showcase-visual">
+      <div class="showcase-image-wrap">
+        <img src="hub003.jpeg" alt="Digit analysis preview" class="showcase-image">
+      </div>
+    </div>
+  </section>
+
+  <section class="showcase-section" data-showcase>
+    <div class="showcase-copy">
+      <span class="showcase-label">STRATEGY TOOLS</span>
+      <h2>Build your <span>approach.</span></h2>
+      <p>Configure your analysis preferences and review strategies in a dedicated workspace.</p>
+      <a href="#pageIntro" class="showcase-link">Explore tools <span>→</span></a>
+    </div>
+    <div class="showcase-visual">
+      <div class="showcase-image-wrap">
+        <img src="hub004.jpeg" alt="Strategy workspace preview" class="showcase-image">
+      </div>
+    </div>
+  </section>
+
+  <section class="showcase-section" data-showcase>
+    <div class="showcase-copy">
+      <span class="showcase-label">PRO TERMINAL</span>
+      <h2>Your workspace. <span>One view.</span></h2>
+      <p>Bring your market analysis tools together in one organized environment.</p>
+      <a href="#pageIntro" class="showcase-link">Get started <span>→</span></a>
+    </div>
+    <div class="showcase-visual">
+      <div class="showcase-image-wrap">
+        <img src="hub005.jpeg" alt="Pro terminal preview" class="showcase-image">
+      </div>
+    </div>
+  </section>
+
+</div>
+<!-- END SCROLLING PRODUCT SHOWCASE -->
+    <div class="intro-footer">
+      Market analysis involves financial risk. Past observations do not
+      guarantee future results. Always understand the product and risk
+      before placing any trade.
+    </div>
+
+  </div>
+
+</section>
 <!-- =========================================================
      PAGE 1 — SPECIFIED ACCESS GATE
 ========================================================= -->
@@ -1893,7 +2830,9 @@ td{color:#b9c4bc}
 
   <div class="gate-card">
     <div class="logo gate-logo">
-      <div class="logo-mark">D</div>
+      <div class="logo-mark">
+  <img src="HUBLOGO.png" alt="HubDeriv Logo">
+</div>
       <div>
         DERIV BINARY
         <small>PRO TERMINAL</small>
@@ -1946,7 +2885,9 @@ td{color:#b9c4bc}
 
   <div class="account-showcase">
     <div class="logo">
-      <div class="logo-mark">D</div>
+      <div class="logo-mark">
+  <img src="HUBLOGO.png" alt="HubDeriv Logo">
+</div>
       <div>
         DERIV BINARY
         <small>PRO TERMINAL</small>
@@ -1987,7 +2928,9 @@ td{color:#b9c4bc}
   <div class="account-panel">
     <div class="account-box">
       <div class="logo">
-        <div class="logo-mark">D</div>
+        <div class="logo-mark">
+  <img src="HUBLOGO.png" alt="HubDeriv Logo">
+</div>
         <div>ACCOUNT ACCESS</div>
       </div>
 
@@ -2068,7 +3011,7 @@ td{color:#b9c4bc}
       <button class="back-gate" id="backGateBtn">← Return to access gate</button>
 
       <div class="notice warning" style="margin-top:20px">
-       Secure Account Access: Account information is maintained separately for each user. Please keep your login credentials confidential and review the applicable security and privacy policies.
+       Secure Account Access: Please keep your login credentials confidential and review the applicable security and privacy policies.
       </div>
     </div>
   </div>
@@ -2105,7 +3048,9 @@ td{color:#b9c4bc}
       <button class="menu-btn" id="menuBtn">☰</button>
 
       <div class="logo">
-        <div class="logo-mark">D</div>
+        <div class="logo-mark">
+  <img src="HUBLOGO.png" alt="HubDeriv Logo">
+</div>
         <div>
           HubDeriv
           <small>PRO BINARY TERMINAL</small>
@@ -2701,7 +3646,7 @@ td{color:#b9c4bc}
           </div>
           <div class="config-field">
             <label>Destination</label>
-            <input id="withdrawDestination" class="input" placeholder="Wallet address or email">
+            <input id="withdrawDestination" class="input" placeholder="Wallet address">
           </div>
         </div>
 
@@ -2822,7 +3767,9 @@ td{color:#b9c4bc}
   <aside class="drawer">
     <div class="drawer-head">
       <div class="logo">
-        <div class="logo-mark">D</div>
+        <div class="logo-mark">
+  <img src="HUBLOGO.png" alt="HubDeriv Logo">
+</div>
         <div>PRO TERMINAL</div>
       </div>
       <button class="close-btn" id="drawerClose">×</button>
@@ -4132,15 +5079,20 @@ const adjusted=[
 
   }).join("");
 
-  const latest=Market.getLatestTick();
+ /* =========================================================
+   CURSOR DIGIT = LATEST DISPLAYED DIGIT
+   The digit currently touched by the moving cursor
+   is always the digit shown as "Latest digit".
+   ========================================================= */
+const badge=
+  document.getElementById("latestDigitBadge");
 
-  const badge=
-    document.getElementById("latestDigitBadge");
-
-  if(badge){
-    badge.textContent=
-      latest??"—";
-  }
+if(badge){
+  badge.textContent=
+    Number.isInteger(this.digitCursor)
+      ? this.digitCursor
+      : "—";
+}
 },
 startCursorTimer(){
   if(this.cursorTimer){
@@ -4158,15 +5110,39 @@ startCursorTimer(){
 },
 
  tickDigitCursor(){
+
   let nextDigit;
 
-  // Pick a random digit, but don't stay on the same digit
+  /*
+   * Select the next digit touched by the cursor.
+   * Never remain on the current digit.
+   */
   do{
     nextDigit=Math.floor(Math.random()*10);
   }while(nextDigit===this.digitCursor);
 
+  /*
+   * The cursor digit becomes the actual
+   * latest displayed digit.
+   */
   this.digitCursor=nextDigit;
+
+  /*
+   * Render the grid so the red cursor moves
+   * to exactly this digit.
+   */
   this.renderDigitGrid();
+
+  /*
+   * Explicitly synchronize the Latest Digit badge
+   * with the digit currently touched by the cursor.
+   */
+  const badge=
+    document.getElementById("latestDigitBadge");
+
+  if(badge){
+    badge.textContent=this.digitCursor;
+  }
 },
 
  setVolatility(value){
@@ -7641,327 +8617,874 @@ function createDeposit(){
   );
 
 }
-
 /* =========================================================
-   OPEN DEPOSIT FORM
+   DEPOSIT PAYMENT METHOD SELECTOR
 ========================================================= */
 
 function openDepositForm(){
 
   UI.modal(
-    "Create Deposit Request",
+    "Choose Deposit Method",
     `
       <div class="deposit-form">
 
         <div class="notice info" style="margin:0">
-          <strong>Payment verification</strong><br>
-          Select the method you used, enter the exact amount,
-          then attach your payment screenshot.
+          <strong>Select a payment method</strong><br>
+          Choose how you would like to fund your account.
         </div>
 
+        <div class="deposit-method-selector">
 
-        <!-- METHOD -->
-
-        <div class="deposit-form-group">
-
-          <label for="depositMethod">
-            Payment Method
-          </label>
-
-          <select
-            id="depositMethod"
-            class="input">
-
-            <option value="">
-              Select payment method
-            </option>
-
-            <option value="USDT TRC20">
-              USDT — TRC20
-            </option>
-
-            <option value="USDC — Ethereum">
-              USDC — Ethereum
-            </option>
-
-            <option value="PayPal">
-              PayPal
-            </option>
-
-          </select>
-
-        </div>
-
-
-        <!-- AMOUNT -->
-
-        <div class="deposit-form-group">
-
-          <label for="depositAmount">
-            Deposit Amount
-          </label>
-
-          <div class="deposit-amount-wrap">
-
-            <span class="deposit-amount-prefix">
-              $
-            </span>
-
-            <input
-              id="depositAmount"
-              class="input"
-              type="number"
-              min="0.01"
-              step="0.01"
-              inputmode="decimal"
-              placeholder="0.00"
-            >
-
-          </div>
-
-        </div>
-
-
-        <!-- SCREENSHOT -->
-
-        <div class="deposit-form-group">
-
-          <label>
-            Payment Screenshot
-          </label>
-
-          <div class="deposit-upload">
-
-            <div class="deposit-upload-top">
-
-              <div class="deposit-upload-icon">
-                ▧
-              </div>
-
-              <div>
-
-                <div class="deposit-upload-title">
-                  Upload payment proof
-                </div>
-
-                <div class="deposit-upload-subtitle">
-                  JPG, JPEG, PNG or WEBP
-                </div>
-
-              </div>
-
-            </div>
-
-
-            <input
-              id="depositScreenshot"
-              class="deposit-file-input"
-              type="file"
-              accept="image/jpeg,image/png,image/webp"
-            >
-
-
-            <div
-              id="depositScreenshotPreview"
-              class="deposit-screenshot-preview">
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <!-- ACTIONS -->
-
-        <div class="deposit-submit-row">
-
+          <!-- CRYPTO -->
           <button
-            class="btn deposit-cancel-btn"
-            id="cancelDepositFormBtn"
-            type="button">
+            type="button"
+            class="deposit-method-option"
+            id="depositCryptoOption">
 
-            CANCEL
+            <img src="crypto.jpeg" alt="Crypto" class="deposit-method-logo">
+
+            <div class="deposit-method-content">
+              <div class="deposit-method-title">
+                Crypto
+              </div>
+
+              <div class="deposit-method-description">
+                Deposit using USDT TRC20 or USDC Ethereum.
+              </div>
+            </div>
+
+            <div class="deposit-method-arrow">
+              →
+            </div>
 
           </button>
 
 
+          <!-- MOBILE MONEY -->
           <button
-            class="btn btn-primary"
-            id="submitDepositBtn"
-            type="button">
+            type="button"
+            class="deposit-method-option"
+            id="depositMobileMoneyOption">
 
-            SUBMIT REQUEST
+           <img src="mobilemoney.jpeg" alt="Mobile Money" class="deposit-method-logo">
+
+            <div class="deposit-method-content">
+              <div class="deposit-method-title">
+                Mobile Money
+              </div>
+
+              <div class="deposit-method-description">
+                Deposit using supported mobile-money services.
+              </div>
+            </div>
+
+            <div class="deposit-method-arrow">
+              →
+            </div>
 
           </button>
 
-        </div>
+
+          <!-- P2P -->
+          <button
+            type="button"
+            class="deposit-method-option"
+            id="depositP2POption">
+
+            <img src="p2p.jpeg" alt="P2P" class="deposit-method-logo">
+
+            <div class="deposit-method-content">
+              <div class="deposit-method-title">
+                P2P
+              </div>
+
+              <div class="deposit-method-description">
+                Buy or transfer funds through peer-to-peer payment.
+              </div>
+            </div>
+
+            <div class="deposit-method-arrow">
+              →
+            </div>
+
+          </button>
 
 
-        <div class="notice warning" style="margin:0">
+          <!-- PAYPAL / CARD -->
+          <button
+            type="button"
+            class="deposit-method-option"
+            id="depositPaypalOption">
 
-          Your screenshot is submitted for verification.
-         Verification takes less than 5mins. Providing false or misleading information may result in account suspension or permanent termination. 
+           <img src="paypalcard.jpeg" alt="PayPal / Card" class="deposit-method-logo">
+
+            <div class="deposit-method-content">
+              <div class="deposit-method-title">
+                PayPal / Card
+              </div>
+
+              <div class="deposit-method-description">
+                Pay securely using PayPal or an eligible payment card.
+              </div>
+            </div>
+
+            <div class="deposit-method-arrow">
+              →
+            </div>
+
+          </button>
 
         </div>
 
       </div>
     `
   );
-  /* =========================================================
-   EXTERNAL BOT FILE DISPLAY
+
+
+  /* CRYPTO */
+
+  document
+    .getElementById("depositCryptoOption")
+    ?.addEventListener(
+      "click",
+      ()=>{
+        UI.closeModal();
+        openCryptoDepositForm();
+      }
+    );
+
+
+  /* MOBILE MONEY */
+
+  document
+    .getElementById("depositMobileMoneyOption")
+    ?.addEventListener(
+      "click",
+      ()=>{
+        openDepositComingSoon(
+          "Mobile Money",
+          "Mobile money deposits are currently being prepared. This payment option will be available soon."
+        );
+      }
+    );
+
+
+  /* P2P */
+
+  document
+    .getElementById("depositP2POption")
+    ?.addEventListener(
+      "click",
+      ()=>{
+        openDepositComingSoon(
+          "P2P",
+          "P2P deposits are currently being prepared. This payment option will be available soon."
+        );
+      }
+    );
+
+
+  /* PAYPAL / CARD */
+
+  document
+    .getElementById("depositPaypalOption")
+    ?.addEventListener(
+      "click",
+      ()=>{
+        openPaypalCardDeposit();
+      }
+    );
+
+}
+/* =========================================================
+   PAYPAL / CARD DEPOSIT PAGE
 ========================================================= */
 
-document
-  .getElementById("paymentScreenshot")
-  ?.addEventListener("change",(event)=>{
+function openPaypalCardDeposit(){
 
-    const file = event.target.files?.[0];
+  const paypalLink =
+    CONFIG.PAYPAL_PAYMENT_LINK;
 
-    const nameElement =
-      document.getElementById("paymentScreenshotName");
+  UI.modal(
+    "PayPal / Card",
+    `
+      <div class="deposit-form">
 
-    if(!nameElement)return;
+        <div class="notice info" style="margin:0">
+          <strong>Pay with PayPal or Card</strong><br>
+          Use the secure PayPal checkout page to complete your payment.
+        </div>
 
-    nameElement.textContent =
-      file ? file.name : "No file selected";
+        <div class="card" style="margin-top:15px">
 
-  });
+          <div class="card-title">
+            <h3>PayPal Payment</h3>
+          </div>
+
+          <label class="field-label">
+            Payment link
+          </label>
+
+          <div class="copy-row">
+
+            <input
+              id="paypalDepositModalLink"
+              class="input"
+              value="${paypalLink}"
+              readonly
+            >
+
+            <button
+              type="button"
+              class="btn copy-btn"
+              id="copyPaypalDepositModal">
+              COPY
+            </button>
+
+          </div>
+
+          <button
+            type="button"
+            class="btn btn-primary btn-block"
+            id="continuePaypalDeposit"
+            style="margin-top:12px">
+            CONTINUE TO PAYPAL
+          </button>
+
+        </div>
+
+        <div class="card" style="margin-top:15px">
+
+          <div class="card-title">
+            <h3>Card Payment</h3>
+          </div>
+
+          <p style="margin:0;color:var(--muted);font-size:11px;line-height:1.6">
+            If card payment is available on the PayPal checkout page,
+            select the card-payment option there and complete the payment.
+          </p>
+
+          <button
+            type="button"
+            class="btn btn-block"
+            id="continueCardDeposit"
+            style="margin-top:12px">
+            PAY WITH CARD
+          </button>
+
+        </div>
+
+        <button
+          type="button"
+          class="btn deposit-back-btn"
+          id="paypalCardBackBtn"
+          style="width:100%;margin-top:15px">
+          BACK TO PAYMENT METHODS
+        </button>
+
+      </div>
+    `
+  );
 
 
-document
-  .getElementById("externalBotXML")
-  ?.addEventListener("change",(event)=>{
+  /* COPY PAYPAL LINK */
 
-    const file = event.target.files?.[0];
+  document
+    .getElementById("copyPaypalDepositModal")
+    ?.addEventListener(
+      "click",
+      async ()=>{
 
-    const nameElement =
-      document.getElementById("externalBotXMLName");
+        try{
 
-    if(!nameElement)return;
+          await navigator.clipboard.writeText(
+            paypalLink
+          );
 
-    if(!file){
+          UI.toast(
+            "Copied",
+            "PayPal payment link copied.",
+            "success"
+          );
 
-      nameElement.textContent = ".xml file only";
-      return;
+        }catch(error){
 
-    }
+          UI.toast(
+            "Copy failed",
+            "Please copy the PayPal link manually.",
+            "error"
+          );
 
-    const fileName =
-      file.name.trim().toLowerCase();
+        }
 
-    if(!fileName.endsWith(".xml")){
-
-      event.target.value = "";
-
-      nameElement.textContent =
-        ".xml file only";
-
-      UI.toast(
-        "Invalid XML file",
-        "External Bot file must be an .xml file only.",
-        "error"
-      );
-
-      return;
-    }
-
-    nameElement.textContent =
-      file.name;
-
-  });
-
-
-  /* Screenshot preview */
-
-  const screenshotInput =
-    document.getElementById(
-      "depositScreenshot"
-    );
-
-
-  const preview =
-    document.getElementById(
-      "depositScreenshotPreview"
-    );
-
-
-  screenshotInput?.addEventListener(
-    "change",
-    function(){
-
-      const file =
-        this.files?.[0];
-
-
-      if(!file){
-
-        preview.classList.remove("show");
-        preview.innerHTML="";
-
-        return;
       }
+    );
 
 
-      if(!file.type.startsWith("image/")){
+  /* CONTINUE TO PAYPAL */
 
-        this.value="";
+  document
+    .getElementById("continuePaypalDeposit")
+    ?.addEventListener(
+      "click",
+      ()=>{
 
-        UI.toast(
-          "Invalid screenshot",
-          "Please select an image file.",
-          "error"
+        window.open(
+          paypalLink,
+          "_blank",
+          "noopener,noreferrer"
         );
 
-        return;
       }
+    );
 
 
-      const reader =
-        new FileReader();
+  /* PAY WITH CARD */
 
-
-      reader.onload =
-        function(event){
-
-          preview.innerHTML = `
-            <img
-              src="${event.target.result}"
-              alt="Payment screenshot preview"
-            >
-          `;
-
-          preview.classList.add("show");
-
-        };
-
-
-      reader.readAsDataURL(file);
-
-    }
-  );
-
-
-  /* Submit */
-
-  document.getElementById(
-    "submitDepositBtn"
-  )?.addEventListener(
-    "click",
-    createDeposit
-  );
-
-
-  /* Cancel */
-
-  document.getElementById(
-    "cancelDepositFormBtn"
-  )?.addEventListener(
+ document
+  .getElementById("continueCardDeposit")
+  ?.addEventListener(
     "click",
     ()=>{
-      UI.closeModal();
+      window.open(
+        CONFIG.PAYPAL_PAYMENT_LINK,
+        "_blank",
+        "noopener,noreferrer"
+      );
     }
   );
+
+
+  /* BACK */
+
+  document
+    .getElementById("paypalCardBackBtn")
+    ?.addEventListener(
+      "click",
+      openDepositForm
+    );
+
+}
+
+/* =========================================================
+   COMING SOON PAYMENT PAGE
+========================================================= */
+
+function openDepositComingSoon(method, message){
+
+  UI.modal(
+    method,
+    `
+      <div class="deposit-coming-soon">
+
+        <div class="deposit-coming-soon-icon">
+          ⏳
+        </div>
+
+        <h3>Coming Soon</h3>
+
+        <p>
+          ${message}
+        </p>
+
+        <button
+          type="button"
+          class="btn deposit-back-btn"
+          id="depositComingSoonBackBtn">
+          BACK TO PAYMENT METHODS
+        </button>
+
+      </div>
+    `
+  );
+
+
+  document
+    .getElementById("depositComingSoonBackBtn")
+    ?.addEventListener(
+      "click",
+      openDepositForm
+    );
+
+}
+
+
+/* =========================================================
+   CRYPTO DEPOSIT ADDRESSES
+========================================================= */
+
+function openCryptoDepositForm(){
+
+  const user = AuthService.current();
+
+  if(!user){
+    UI.toast(
+      "Session required",
+      "Please log in again to continue.",
+      "error"
+    );
+    return;
+  }
+
+  /*
+   * Make sure this user has permanent
+   * assigned crypto addresses.
+   */
+  const addresses =
+    ensureUserDepositAddresses(user);
+
+  if(!addresses){
+    UI.toast(
+      "Address error",
+      "Crypto deposit addresses could not be loaded.",
+      "error"
+    );
+    return;
+  }
+
+
+  UI.modal(
+    "Crypto Deposit",
+    `
+      <div class="deposit-form">
+
+        <div class="notice info" style="margin:0">
+          <strong>Crypto Deposit</strong><br>
+          Send your funds to one of the assigned addresses below.
+        </div>
+
+
+        <!-- USDT TRC20 -->
+
+        <div class="card" style="margin-top:12px">
+
+          <div class="card-title">
+            <h3>USDT — TRC20</h3>
+          </div>
+
+          <div class="copy-row">
+
+            <input
+              id="cryptoDepositTrc20Address"
+              class="input"
+              value=""
+              readonly
+            >
+
+            <button
+              class="btn copy-btn"
+              id="cryptoCopyTrc20Address"
+              type="button">
+              COPY
+            </button>
+
+          </div>
+
+          <div
+            class="notice info"
+            style="margin-top:10px">
+
+            Send USDT using the TRC20 network only.
+
+          </div>
+
+        </div>
+
+
+        <!-- USDC ETHEREUM -->
+
+        <div class="card" style="margin-top:12px">
+
+          <div class="card-title">
+            <h3>USDC — Ethereum</h3>
+          </div>
+
+          <div class="copy-row">
+
+            <input
+              id="cryptoDepositEthereumAddress"
+              class="input"
+              value=""
+              readonly
+            >
+
+            <button
+              class="btn copy-btn"
+              id="cryptoCopyEthereumAddress"
+              type="button">
+              COPY
+            </button>
+
+          </div>
+
+          <div
+            class="notice info"
+            style="margin-top:10px">
+
+            Send USDC using the Ethereum/ERC20 network only.
+
+          </div>
+
+        </div>
+
+
+        <!-- BACK -->
+
+        <button
+          class="btn"
+          id="cryptoBackToMethodsBtn"
+          type="button"
+          style="width:100%;margin-top:12px">
+
+          BACK TO PAYMENT METHODS
+
+        </button>
+
+      </div>
+    `
+  );
+
+
+  /*
+   * Put the permanently assigned addresses
+   * into the Crypto modal.
+   *
+   * IMPORTANT:
+   * These IDs are unique to this modal.
+   */
+  const trc20 =
+    document.getElementById(
+      "cryptoDepositTrc20Address"
+    );
+
+  const ethereum =
+    document.getElementById(
+      "cryptoDepositEthereumAddress"
+    );
+
+
+  if(trc20){
+    trc20.value =
+      addresses.trc20 || "";
+  }
+
+
+  if(ethereum){
+    ethereum.value =
+      addresses.ethereum || "";
+  }
+
+
+  /*
+   * COPY USDT TRC20
+   */
+  document
+    .getElementById(
+      "cryptoCopyTrc20Address"
+    )
+    ?.addEventListener(
+      "click",
+      async ()=>{
+
+        if(!addresses.trc20){
+          return;
+        }
+
+        try{
+
+          await navigator.clipboard.writeText(
+            addresses.trc20
+          );
+
+          UI.toast(
+            "Copied",
+            "Your assigned USDT TRC20 address was copied.",
+            "success"
+          );
+
+        }catch(error){
+
+          UI.toast(
+            "Copy failed",
+            "Please copy the address manually.",
+            "error"
+          );
+
+        }
+
+      }
+    );
+
+
+  /*
+   * COPY USDC ETHEREUM
+   */
+  document
+    .getElementById(
+      "cryptoCopyEthereumAddress"
+    )
+    ?.addEventListener(
+      "click",
+      async ()=>{
+
+        if(!addresses.ethereum){
+          return;
+        }
+
+        try{
+
+          await navigator.clipboard.writeText(
+            addresses.ethereum
+          );
+
+          UI.toast(
+            "Copied",
+            "Your assigned USDC Ethereum address was copied.",
+            "success"
+          );
+
+        }catch(error){
+
+          UI.toast(
+            "Copy failed",
+            "Please copy the address manually.",
+            "error"
+          );
+
+        }
+
+      }
+    );
+
+
+  /*
+   * BACK TO PAYMENT METHODS
+   */
+  document
+    .getElementById(
+      "cryptoBackToMethodsBtn"
+    )
+    ?.addEventListener(
+      "click",
+      openDepositForm
+    );
+
+}
+/* =========================================================
+   WITHDRAWAL METHOD SELECTOR
+========================================================= */
+
+function openWithdrawalMethodSelector(){
+
+  UI.modal(
+    "Choose Withdrawal Method",
+    `
+      <div class="deposit-form">
+
+        <div class="notice info" style="margin:0">
+          <strong>Select Withdrawal Method</strong><br>
+          Choose how you want to receive your withdrawal.
+        </div>
+
+
+        <!-- CRYPTO -->
+
+        <button
+          type="button"
+          class="deposit-method-option"
+          id="withdrawCryptoOption">
+
+          <span class="deposit-method-icon">
+  <img src="crypto.jpeg" alt="Crypto">
+</span>
+
+          <span class="deposit-method-content">
+            <strong>Crypto</strong>
+            <small>
+              Withdraw using USDT TRC20 or USDC.
+            </small>
+          </span>
+
+          <span class="deposit-method-arrow">→</span>
+
+        </button>
+
+
+        <!-- MOBILE MONEY -->
+
+        <button
+          type="button"
+          class="deposit-method-option"
+          id="withdrawMobileMoneyOption">
+
+          <span class="deposit-method-icon">
+  <img src="mobilemoney.jpeg" alt="Mobile Money">
+</span>
+
+          <span class="deposit-method-content">
+            <strong>Mobile Money</strong>
+            <small>
+              Withdraw directly to supported mobile money services.
+            </small>
+          </span>
+
+          <span class="deposit-method-arrow">→</span>
+
+        </button>
+
+
+        <!-- P2P -->
+
+        <button
+          type="button"
+          class="deposit-method-option"
+          id="withdrawP2POption">
+
+         <span class="deposit-method-icon">
+  <img src="p2p.jpeg" alt="P2P">
+</span>
+
+          <span class="deposit-method-content">
+            <strong>P2P</strong>
+            <small>
+              Withdraw through peer-to-peer payment.
+            </small>
+          </span>
+
+          <span class="deposit-method-arrow">→</span>
+
+        </button>
+
+
+        <!-- BACK -->
+
+        <button
+          type="button"
+          class="btn deposit-back-btn"
+          id="withdrawMethodsBackBtn">
+
+          BACK
+
+        </button>
+
+      </div>
+    `
+  );
+
+
+  /*
+   * CRYPTO
+   *
+   * Open the existing Withdrawal page.
+   * Nothing inside the existing withdrawal
+   * system is changed.
+   */
+  document
+    .getElementById("withdrawCryptoOption")
+    ?.addEventListener(
+      "click",
+      ()=>{
+
+        UI.closeModal();
+
+        Router.go("withdraw");
+
+      }
+    );
+
+
+  /*
+   * MOBILE MONEY
+   */
+  document
+    .getElementById("withdrawMobileMoneyOption")
+    ?.addEventListener(
+      "click",
+      ()=>{
+
+        openWithdrawalComingSoon(
+          "Mobile Money withdrawals are coming soon."
+        );
+
+      }
+    );
+
+
+  /*
+   * P2P
+   */
+  document
+    .getElementById("withdrawP2POption")
+    ?.addEventListener(
+      "click",
+      ()=>{
+
+        openWithdrawalComingSoon(
+          "P2P withdrawals are coming soon."
+        );
+
+      }
+    );
+
+
+  /*
+   * BACK
+   */
+  document
+    .getElementById("withdrawMethodsBackBtn")
+    ?.addEventListener(
+      "click",
+      UI.closeModal
+    );
+
+}
+
+
+/* =========================================================
+   WITHDRAWAL COMING SOON
+========================================================= */
+
+function openWithdrawalComingSoon(message){
+
+  UI.modal(
+    "Withdrawal",
+    `
+      <div class="deposit-form">
+
+        <div class="deposit-coming-soon">
+
+          <div class="deposit-coming-soon-icon">
+            ⏳
+          </div>
+
+          <h3>Coming Soon</h3>
+
+          <p>
+            ${Utils.escape(message)}
+          </p>
+
+          <button
+            type="button"
+            class="btn deposit-back-btn"
+            id="withdrawComingSoonBackBtn">
+
+            BACK TO WITHDRAWAL METHODS
+
+          </button>
+
+        </div>
+
+      </div>
+    `
+  );
+
+
+  document
+    .getElementById("withdrawComingSoonBackBtn")
+    ?.addEventListener(
+      "click",
+      openWithdrawalMethodSelector
+    );
 
 }
 
@@ -8283,7 +9806,33 @@ function logout(){
    EVENT BINDING
 ========================================================= */
 function bindGlobalEvents(){
+  /* =========================================================
+     INTRODUCTION PAGE
+     Get Started -> Private Access
+  ========================================================= */
 
+  const introGetStartedBtn=
+    document.getElementById("introGetStartedBtn");
+
+  if(introGetStartedBtn){
+
+    introGetStartedBtn.addEventListener("click",()=>{
+
+      /*
+       * The introduction page is informational only.
+       * It does not unlock or bypass the private-access gate.
+       */
+
+      showPage("pageGate");
+
+      window.scrollTo({
+        top:0,
+        behavior:"smooth"
+      });
+
+    });
+
+  }
   /* Gate */
   document.getElementById("gateForm").addEventListener("submit",e=>{
     e.preventDefault();
@@ -8436,11 +9985,46 @@ function bindGlobalEvents(){
     });
 
 
-  document.querySelectorAll("[data-nav]").forEach(btn=>{
-    btn.addEventListener("click",()=>{
-      Router.go(btn.dataset.nav);
-    });
+ document.querySelectorAll("[data-nav]").forEach(btn=>{
+
+  btn.addEventListener("click",()=>{
+
+    /*
+     * DEPOSIT
+     */
+    if(btn.dataset.nav === "deposit"){
+
+      openDepositForm();
+
+      return;
+
+    }
+
+
+    /*
+     * WITHDRAWAL
+     *
+     * Open the withdrawal-method selector first.
+     */
+    if(btn.dataset.nav === "withdraw"){
+
+      openWithdrawalMethodSelector();
+
+      return;
+
+    }
+
+
+    /*
+     * ALL OTHER NAVIGATION
+     *
+     * Remains unchanged.
+     */
+    Router.go(btn.dataset.nav);
+
   });
+
+});
 
 
   document.getElementById("logoutBtn")
@@ -8692,11 +10276,33 @@ function init(){
     */
     const session=Storage.read(Storage.keys.session,null);
 
-    if(session && session.status==="ACTIVE" && AuthService.current()){
-      enterApplication(AuthService.current());
-    }else{
-      showPage("pageGate");
-    }
+ /*
+ * Restore the user's session after a page reload.
+ *
+ * If a valid active session exists, return the user
+ * directly to the terminal instead of Page 0.
+ *
+ * If there is no valid session, show the public
+ * introduction page normally.
+ */
+
+if(
+  session &&
+  session.status === "ACTIVE" &&
+  AuthService.current()
+){
+
+  showPage("pageApp");
+
+  Account.mode = "real";
+
+  App.startForUser();
+
+}else{
+
+  showPage("pageIntro");
+
+}
 
   }catch(error){
     console.error("Application initialization failed:",error);
@@ -8712,7 +10318,53 @@ function init(){
 }
 
 document.addEventListener("DOMContentLoaded",init);
+/* =========================================================
+   SHOWCASE SCROLL ANIMATION
+========================================================= */
 
+document.addEventListener("DOMContentLoaded",function(){
+
+  const showcaseSections =
+    document.querySelectorAll("[data-showcase]");
+
+  if(!showcaseSections.length){
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    function(entries){
+
+      entries.forEach(function(entry){
+
+        if(entry.isIntersecting){
+
+          entry.target.classList.add("is-active");
+          entry.target.classList.remove("is-past");
+
+        }else{
+
+          const rect = entry.target.getBoundingClientRect();
+
+          if(rect.top < 0){
+            entry.target.classList.remove("is-active");
+            entry.target.classList.add("is-past");
+          }
+
+        }
+
+      });
+
+    },
+    {
+      threshold:0.45
+    }
+  );
+
+  showcaseSections.forEach(function(section){
+    observer.observe(section);
+  });
+
+});
 
 /* =========================================================
    SAFE ERROR HANDLING
