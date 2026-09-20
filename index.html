@@ -8340,51 +8340,60 @@ if(botModeBalance){
   const FIVE_MINUTES = 5 * 60 * 1000;
   const now = Date.now();
 
-  /*
+/*
  * =========================
  * DEPOSITS
  * =========================
  *
  * Pending for 5 minutes.
- * After 5 minutes -> Success.
+ * After 5 minutes -> Declined.
+ *
+ * Previously resolved deposits remain unchanged.
  */
 
-  const depositsDB =
-    Storage.read(Storage.keys.deposits,{});
+const depositsDB =
+  Storage.read(Storage.keys.deposits, {});
 
-  const deposits =
-    depositsDB[uid] || [];
+const deposits =
+  depositsDB[uid] || [];
 
-  let depositsChanged = false;
+let depositsChanged = false;
 
-  deposits.forEach(record => {
+deposits.forEach(record => {
 
-    const requestedAt =
-      Number(record.timestamp || 0);
+  const requestedAt =
+    Number(record.timestamp || 0);
 
-    if(
-  String(record.status).toLowerCase()==="pending" &&
-  requestedAt > 0 &&
-  now - requestedAt >= FIVE_MINUTES
-){
+  const currentStatus =
+    String(record.status || "").toLowerCase();
 
-  record.status = "Success";
+  /*
+   * Only unresolved Pending deposits
+   * are eligible for automatic decline.
+   */
+  if(
+    currentStatus === "pending" &&
+    requestedAt > 0 &&
+    now - requestedAt >= FIVE_MINUTES
+  ){
 
-  record.resolvedAt = now;
+    record.status = "Declined";
 
-  depositsChanged = true;
-}
+    record.resolvedAt = now;
 
-  });
-
-  if(depositsChanged){
-
-    Storage.write(
-      Storage.keys.deposits,
-      depositsDB
-    );
-
+    depositsChanged = true;
   }
+
+});
+
+if(depositsChanged){
+
+  Storage.write(
+    Storage.keys.deposits,
+    depositsDB
+  );
+
+}
 
 
   /*
