@@ -22,6 +22,190 @@
   --shadow:0 18px 60px rgba(0,0,0,.45);
   --radius:20px;
 }
+/* =========================================================
+   LIGHT / DARK THEME
+========================================================= */
+
+body.light-theme{
+  --bg:#f4f7f5;
+  --panel:#ffffff;
+  --panel2:#eef3ef;
+  --border:rgba(20,60,38,.12);
+  --text:#17211b;
+  --muted:#66736b;
+  --shadow:0 18px 50px rgba(20,40,28,.12);
+}
+
+/* Main page background */
+body.light-theme{
+  background:
+    radial-gradient(
+      circle at 15% 10%,
+      rgba(53,242,123,.10),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(37,104,71,.06),
+      transparent 32%
+    ),
+    #f4f7f5;
+}
+
+/* Dashboard header */
+body.light-theme .app-header{
+  background:rgba(255,255,255,.90);
+  border-bottom-color:rgba(20,60,38,.10);
+}
+
+/* Dashboard cards */
+body.light-theme .card{
+  background:linear-gradient(
+    145deg,
+    #ffffff,
+    #f4f8f5
+  );
+  border-color:rgba(20,60,38,.10);
+  box-shadow:0 12px 40px rgba(20,40,28,.08);
+}
+
+/* Buttons */
+body.light-theme .btn{
+  background:#ffffff;
+  color:var(--text);
+  border-color:rgba(20,60,38,.12);
+}
+
+/* Inputs */
+body.light-theme .input{
+  background:#ffffff;
+  color:#17211b;
+  border-color:rgba(20,60,38,.14);
+}
+
+body.light-theme .input::placeholder{
+  color:#87938b;
+}
+
+/* Account tabs */
+body.light-theme .tabs{
+  background:#e9efeb;
+  border-color:rgba(20,60,38,.10);
+}
+
+body.light-theme .tab.active{
+  background:#ffffff;
+  color:#17211b;
+}
+
+/* Balance */
+body.light-theme .balance{
+  background:#ffffff;
+  border-color:rgba(20,60,38,.10);
+}
+
+/* Mode selector */
+body.light-theme .mode-select{
+  background:#ffffff;
+  color:#17211b;
+  border-color:rgba(20,60,38,.14);
+}
+
+/* Menu button */
+body.light-theme .menu-btn{
+  background:#ffffff;
+  color:#17211b;
+  border-color:rgba(20,60,38,.12);
+}
+
+/* Profile items */
+body.light-theme .profile-item{
+  background:#f7faf8;
+  border-color:rgba(20,60,38,.08);
+}
+
+/* Notices */
+body.light-theme .notice{
+  background:#f7faf8;
+}
+
+/* Theme toggle itself */
+.theme-toggle{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  width:100%;
+  padding:14px 16px;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:14px;
+  background:#0d1510;
+  color:var(--text);
+}
+
+.theme-toggle-left{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.theme-toggle-icon{
+  width:38px;
+  height:38px;
+  border-radius:11px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(53,242,123,.10);
+  color:var(--green);
+  font-size:17px;
+}
+
+.theme-toggle-title{
+  font-size:13px;
+  font-weight:800;
+}
+
+.theme-toggle-sub{
+  display:block;
+  margin-top:3px;
+  color:var(--muted);
+  font-size:10px;
+}
+
+.theme-toggle-button{
+  position:relative;
+  width:54px;
+  height:30px;
+  border:0;
+  border-radius:99px;
+  background:#26352b;
+  padding:3px;
+  transition:.25s ease;
+}
+
+.theme-toggle-button span{
+  display:block;
+  width:24px;
+  height:24px;
+  border-radius:50%;
+  background:#ffffff;
+  transition:.25s ease;
+  box-shadow:0 2px 8px rgba(0,0,0,.25);
+}
+
+body.light-theme .theme-toggle{
+  background:#ffffff;
+  border-color:rgba(20,60,38,.10);
+}
+
+body.light-theme .theme-toggle-button{
+  background:var(--green);
+}
+
+body.light-theme .theme-toggle-button span{
+  transform:translateX(24px);
+}
 
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{min-height:100%;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text)}
@@ -2115,6 +2299,104 @@ body{
 .notice.danger{background:rgba(255,77,104,.06);border:1px solid rgba(255,77,104,.13);color:#d796a1}
 .notice.success{background:rgba(53,242,123,.06);border:1px solid rgba(53,242,123,.13);color:#8bc99e}
 
+/* =========================================================
+   DERIV API / ACCOUNT ISOLATION DISCLAIMER
+========================================================= */
+
+.api-isolation-disclaimer{
+  position:relative;
+  margin-top:18px;
+  padding:18px 18px 17px;
+  border:1px solid rgba(53,242,123,.22);
+  border-radius:16px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(53,242,123,.075),
+      rgba(10,18,13,.92)
+    );
+  box-shadow:
+    0 12px 35px rgba(0,0,0,.22),
+    inset 0 1px 0 rgba(255,255,255,.035);
+  overflow:hidden;
+}
+
+.api-isolation-disclaimer::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:3px;
+  background:linear-gradient(
+    180deg,
+    #35f27b,
+    #16c968
+  );
+}
+
+.api-isolation-head{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:9px;
+}
+
+.api-isolation-icon{
+  width:34px;
+  height:34px;
+  flex:0 0 34px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:10px;
+  color:#35f27b;
+  background:rgba(53,242,123,.10);
+  border:1px solid rgba(53,242,123,.18);
+  font-size:15px;
+}
+
+.api-isolation-title{
+  color:var(--text);
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.7px;
+  text-transform:uppercase;
+}
+
+.api-isolation-badge{
+  display:inline-flex;
+  align-items:center;
+  margin-top:3px;
+  padding:3px 7px;
+  border-radius:999px;
+  color:#35f27b;
+  background:rgba(53,242,123,.08);
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.45px;
+}
+
+.api-isolation-text{
+  margin:0;
+  color:#9ca9a0;
+  font-size:11px;
+  line-height:1.75;
+}
+
+.api-isolation-text strong{
+  color:var(--text);
+  font-weight:800;
+}
+
+.api-isolation-footer{
+  margin-top:11px;
+  padding-top:10px;
+  border-top:1px solid rgba(255,255,255,.06);
+  color:#718078;
+  font-size:9px;
+  line-height:1.6;
+}
 /* =========================
    DRAWER
 ========================= */
@@ -4417,7 +4699,7 @@ body{
         <span class="plan-tag">Flexible access</span>
         <h3>Weekly</h3>
         <div class="plan-price">
-          $20 <span>/ week</span>
+          $11 <span>/ week</span>
         </div>
         <p>
           Suitable for users who want short-term access while
@@ -4429,7 +4711,7 @@ body{
         <span class="plan-tag">Popular choice</span>
         <h3>Monthly</h3>
         <div class="plan-price">
-          $50 <span>/ month</span>
+          $25 <span>/ month</span>
         </div>
         <p>
           Continued access with a convenient monthly subscription
@@ -4441,7 +4723,7 @@ body{
         <span class="plan-tag">Extended access</span>
         <h3>Yearly</h3>
         <div class="plan-price">
-          $125 <span>/ year</span>
+          $105 <span>/ year</span>
         </div>
         <p>
           Designed for users seeking a longer subscription period
@@ -4453,7 +4735,7 @@ body{
         <span class="plan-tag">Long-term option</span>
         <h3>Lifetime</h3>
         <div class="plan-price">
-          $300 <span>/ lifetime</span>
+          $200 <span>/ lifetime</span>
         </div>
         <p>
           A one-time subscription request for long-term platform
@@ -4487,7 +4769,42 @@ body{
         Close
       </button>
     </div>
+<div class="access-socials">
 
+  <a
+    href="https://wa.me/254751120435"
+    class="gate-social-icon whatsapp"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Contact HubDeriv on WhatsApp"
+    title="WhatsApp"
+  >
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <a
+    href="https://www.facebook.com/pro.kkm.2025"
+    class="gate-social-icon facebook"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Visit HubDeriv on Facebook"
+    title="Facebook"
+  >
+    <i class="fa-brands fa-facebook-f"></i>
+  </a>
+
+  <a
+    href="https://t.me/derivhack"
+    class="gate-social-icon telegram"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Contact HubDeriv on Telegram"
+    title="Telegram"
+  >
+    <i class="fa-brands fa-telegram"></i>
+  </a>
+
+</div>
   </div>
 </div>
 
@@ -5401,14 +5718,65 @@ body{
 
     <!-- ACCOUNT -->
     <section class="dashboard-page" data-page="account">
-      <div class="page-heading">
-        <div>
-          <h1>Account</h1>
-          <p>Your account profile.</p>
-        </div>
+    <div class="page-heading">
+  <div>
+    <h1>Account</h1>
+    <p>Your account profile.</p>
+  </div>
+</div>
+
+
+<!-- =====================================================
+     APPEARANCE
+===================================================== -->
+
+<div class="card" style="margin-bottom:15px">
+
+  <div class="theme-toggle">
+
+    <div class="theme-toggle-left">
+
+      <div
+        class="theme-toggle-icon"
+        id="themeToggleIcon"
+      >
+        ☾
       </div>
 
-      <div class="card">
+      <div>
+
+        <div class="theme-toggle-title">
+          Appearance
+        </div>
+
+        <span
+          class="theme-toggle-sub"
+          id="themeToggleText"
+        >
+          Dark mode
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <button
+      type="button"
+      class="theme-toggle-button"
+      id="themeToggleButton"
+      aria-label="Toggle light and dark mode"
+      onclick="toggleTheme()"
+    >
+      <span></span>
+    </button>
+
+  </div>
+
+</div>
+
+
+<div class="card">
         <div id="profileGrid" class="profile-grid"></div>
       </div>
 
@@ -5485,17 +5853,174 @@ body{
           Trading involves financial risk. Never risk money you cannot afford to lose.
         </div>
 
-        <div style="line-height:1.8;color:#9ca9a0;font-size:12px">
-          <p>• Predictions displayed by this application are statistical estimates.</p>
-          <p>• Historical tick distribution does not guarantee future outcomes.</p>
-          <p>• Demo trading does not represent real Deriv transactions.</p>
-          <p>• Real trading requires a legitimate authenticated trading API connection.</p>
-          <p>• The application does not guarantee profit or trading accuracy.</p>
-          <p>• Martingale strategies can significantly increase losses.</p>
-          <p>• Payment screenshots do not constitute automatic blockchain/payment verification.</p>
-          <p>• Deposits and withdrawals require actual payment-provider/backend confirmation.</p>
-          <p>• Real balance is not increased by clicking payment or deposit buttons.</p>
-          <p>• Account data shown here is stored for this browser session unless a connected backend is enabled.</p>
+
+<h3>1. Platform Use</h3>
+
+<p>
+  HubDeriv provides market analysis and trading tools.
+  Information shown is for analysis only.
+</p>
+
+<h3>2. Market Data</h3>
+
+<p>
+  The platform access supported Deriv synthetic digit market data
+  through an authorized API connection.
+</p>
+
+<p>
+  Market patterns and statistics do not guarantee future results.
+</p>
+
+<h3>3. Account Separation</h3>
+
+<p>
+  Your Deriv account remains separate from this platform.
+  The API connection is intended to access supported market information.
+</p>
+
+<p>
+  Your Deriv balance, wallet and credentials are not automatically
+  transferred to HubDeriv.
+</p>
+
+<p>
+  Use the appropriate trading HubDeriv wallet or account when placing trades.
+</p>
+
+<h3>4. Security</h3>
+
+<p>
+  Keep your HubDeriv password private.
+  Never share your private credentials with unauthorized persons.
+</p>
+
+<h3>5. Trading Risk</h3>
+
+<p>
+  Trading involves financial risk.
+  You may lose some or all of your trading funds.
+</p>
+
+<p>
+  Only trade with money you can afford to lose.
+</p>
+
+<h3>6. Predictions</h3>
+
+<p>
+  Predictions, signals and percentages are system-generated estimates.
+  They are not guaranteed trading results or financial advice.
+</p>
+
+<h3>7. Demo Account</h3>
+
+<p>
+  Demo balances are for testing purposes.
+  They do not represent real funds or real HubDeriv transactions.
+</p>
+
+<h3>8. Deposits & Withdrawals</h3>
+
+<p>
+  Always verify payment and withdrawal details before confirming a transaction.
+  
+</p>
+
+<h3>9. Third-Party Services</h3>
+
+<p>
+  External APIs and payment services may have their own terms and policies.
+  Service interruptions may occur outside our control.
+</p>
+
+<h3>10. User Responsibility</h3>
+
+<p>
+  You are responsible for checking your account, wallet and trade details
+  before confirming any transaction.
+</p>
+
+<div class="notice warning" style="margin-top:18px">
+  <strong>Risk Notice:</strong>
+  Trading carries financial risk. Past results and market patterns do not
+  guarantee future results. Trade responsibly.
+</div>
+
+<div style="
+  margin-top:12px;
+  padding:12px 14px;
+  border-radius:12px;
+  border:1px solid rgba(53,242,123,.15);
+  background:rgba(53,242,123,.04);
+  color:#829188;
+  font-size:10px;
+  line-height:1.6;
+">
+  <strong style="color:#aab7af">API Notice:</strong>
+  Where enabled, the Deriv API connection is intended for supported
+  market-data access only. It does not connect
+your personal Deriv account or trading wallet.
+</div>
+
+                <!-- =====================================================
+             DERIV API / ACCOUNT ISOLATION DISCLAIMER
+        ====================================================== -->
+
+        <div class="api-isolation-disclaimer">
+
+          <div class="api-isolation-head">
+
+            <div class="api-isolation-icon">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+
+            <div>
+              <div class="api-isolation-title">
+                Deriv API & Account Isolation
+              </div>
+
+              <span class="api-isolation-badge">
+                DATA ACCESS NOTICE
+              </span>
+            </div>
+
+          </div>
+
+          <p class="api-isolation-text">
+
+            <strong>Important:</strong>
+            This terminal is designed to operate separately from your
+            personal Deriv trading account. Where a Deriv API connection
+            is used, its purpose is limited to accessing or retrieving
+            supported synthetic digit market data and digit-pattern
+            production for analysis.
+
+            <br><br>
+
+            This interface does <strong>not</strong> use that market-data
+            connection as your personal Deriv trading wallet or as a
+            replacement for your Deriv account. Your Deriv account,
+            credentials, funds and trading wallet remain separate from
+            this application.
+
+            <br><br>
+
+            Users should therefore use a <strong>separate trading wallet
+            or account balance</strong> for any trading activity carried
+            out through the terminal, where applicable. Always verify
+            the destination, authorization and account connection before
+            placing any real transaction.
+
+          </p>
+
+          <div class="api-isolation-footer">
+            <i class="fa-solid fa-lock"></i>
+            Market-data access and trading-account access are treated as
+            separate functions. Never share your HubDeriv password
+            or private credentials with an unauthorized party.
+          </div>
+
         </div>
       </div>
     </section>
@@ -5597,7 +6122,7 @@ const CONFIG = {
   ],
 
   DEMO_BALANCE: 10000,
-  REAL_BALANCE: 0,
+  REAL_BALANCE: 100,
   ANALYSIS_CYCLE_SECONDS: 20,
   BOT_INTERVAL_MS: 2000,
   INITIAL_TICKS: 160,
@@ -6628,10 +7153,19 @@ if(
   },
 
 startForUser(){
+
   Account.mode="real";
+
+  /*
+   * Apply successful withdrawal deductions,
+   * including older successful withdrawals
+   * that were never deducted.
+   */
+  applySuccessfulWithdrawalDeductions();
+
   updatePortfolioVisibility();
-updateWithdrawVisibility();
-updateTransactionsVisibility();
+  updateWithdrawVisibility();
+  updateTransactionsVisibility();
 
 // Generate a fresh digit distribution for every login
 LiveDigitPercentages.createFresh(this.volatility);
@@ -8396,51 +8930,63 @@ if(depositsChanged){
 }
 
 
-  /*
-   * =========================
-   * WITHDRAWALS
-   * =========================
-   *
-   * Pending for 5 minutes.
-   * After 5 minutes -> Success.
-   */
+/*
+ * =========================
+ * WITHDRAWALS
+ * =========================
+ *
+ * Pending for 5 minutes.
+ * After 5 minutes -> Success.
+ * Successful withdrawals are deducted once.
+ */
 
-  const withdrawalsDB =
-    Storage.read(Storage.keys.withdrawals,{});
+const withdrawalsDB =
+  Storage.read(Storage.keys.withdrawals, {});
 
-  const withdrawals =
-    withdrawalsDB[uid] || [];
+const withdrawals =
+  withdrawalsDB[uid] || [];
 
-  let withdrawalsChanged = false;
+let withdrawalsChanged = false;
 
-  withdrawals.forEach(record => {
+withdrawals.forEach(record => {
 
-    const requestedAt =
-      Number(record.timestamp || 0);
+  const requestedAt =
+    Number(record.timestamp || 0);
 
-    if(
-      String(record.status).toLowerCase()==="pending" &&
-      requestedAt > 0 &&
-      now - requestedAt >= FIVE_MINUTES
-    ){
+  const currentStatus =
+    String(record.status || "").toLowerCase();
 
-      record.status = "Success";
+  if(
+    currentStatus === "pending" &&
+    requestedAt > 0 &&
+    now - requestedAt >= FIVE_MINUTES
+  ){
 
-      record.resolvedAt = now;
+    record.status = "Success";
 
-      withdrawalsChanged = true;
-    }
+    record.resolvedAt = now;
 
-  });
-
-  if(withdrawalsChanged){
-
-    Storage.write(
-      Storage.keys.withdrawals,
-      withdrawalsDB
-    );
+    withdrawalsChanged = true;
 
   }
+
+});
+
+if(withdrawalsChanged){
+
+  Storage.write(
+    Storage.keys.withdrawals,
+    withdrawalsDB
+  );
+
+}
+
+/*
+ * Deduct all successful withdrawals,
+ * including older successful records
+ * that were never deducted.
+ */
+applySuccessfulWithdrawalDeductions();
 
 },
 
@@ -11737,6 +12283,7 @@ function createWithdrawal(){
   });
 
   Storage.write(Storage.keys.withdrawals,records);
+  applySuccessfulWithdrawalDeductions();
 
   UI.toast(
     "Withdrawal request created",
@@ -11747,6 +12294,96 @@ function createWithdrawal(){
   App.renderTransactions();
 }
 
+/* =========================================================
+   APPLY SUCCESSFUL WITHDRAWAL DEDUCTIONS
+========================================================= */
+
+function applySuccessfulWithdrawalDeductions(){
+
+  const user = AuthService.current();
+
+  if(!user){
+    return;
+  }
+
+  /*
+   * Withdrawals must affect the Real account only.
+   */
+  ensureAccountBalances(user);
+
+  const uid = user.id;
+
+  const withdrawalsDB =
+    Storage.read(Storage.keys.withdrawals, {});
+
+  const withdrawals =
+    withdrawalsDB[uid] || [];
+
+  let withdrawalsChanged = false;
+
+  /*
+   * Process every historical withdrawal.
+   */
+  withdrawals.forEach(record => {
+
+    const status =
+      String(record.status || "").toLowerCase();
+
+    /*
+     * Only successful withdrawals are deducted.
+     * The marker prevents double deduction.
+     */
+    if(
+      (status === "success" ||
+       status === "approved" ||
+       status === "completed") &&
+      record.balanceDeducted !== true
+    ){
+
+      const amount =
+        Number(record.amount || 0);
+
+      if(Number.isFinite(amount) && amount > 0){
+
+        const currentRealBalance =
+          Number(user.profile.realBalance || 0);
+
+        user.profile.realBalance =
+          Math.max(
+            0,
+            currentRealBalance - amount
+          );
+
+        /*
+         * Mark this withdrawal as processed.
+         */
+        record.balanceDeducted = true;
+        record.balanceDeductedAt = Date.now();
+
+        withdrawalsChanged = true;
+
+      }
+
+    }
+
+  });
+
+  if(withdrawalsChanged){
+
+    Storage.write(
+      Storage.keys.withdrawals,
+      withdrawalsDB
+    );
+
+    AuthService.update(user);
+
+    App.renderBalance();
+
+    App.updateRealWithdrawalBalance();
+
+  }
+
+}
 
 /* =========================================================
    FORGOT PASSWORD
@@ -12617,13 +13254,116 @@ App.selectContract=function(contract){
 
 };
 
+/* =========================================================
+   LIGHT / DARK THEME
+========================================================= */
 
+function applyTheme(theme){
+
+  const isLight =
+    theme === "light";
+
+  document.body.classList.toggle(
+    "light-theme",
+    isLight
+  );
+
+
+  const icon =
+    document.getElementById(
+      "themeToggleIcon"
+    );
+
+  const text =
+    document.getElementById(
+      "themeToggleText"
+    );
+
+
+  if(icon){
+
+    icon.textContent =
+      isLight
+        ? "☀"
+        : "☾";
+
+  }
+
+
+  if(text){
+
+    text.textContent =
+      isLight
+        ? "Light mode"
+        : "Dark mode";
+
+  }
+
+
+  localStorage.setItem(
+    "hubderivTheme",
+    isLight
+      ? "light"
+      : "dark"
+  );
+
+}
+
+
+/* =========================================================
+   TOGGLE THEME
+========================================================= */
+
+function toggleTheme(){
+
+  const isLight =
+    document.body.classList.contains(
+      "light-theme"
+    );
+
+
+  applyTheme(
+    isLight
+      ? "dark"
+      : "light"
+  );
+
+}
+
+
+/* =========================================================
+   LOAD SAVED THEME
+========================================================= */
+
+function loadTheme(){
+
+  const savedTheme =
+    localStorage.getItem(
+      "hubderivTheme"
+    );
+
+
+  if(savedTheme === "light"){
+
+    applyTheme("light");
+
+  }else{
+
+    applyTheme("dark");
+
+  }
+
+}
 /* =========================================================
    APP INIT
 ========================================================= */
 function init(){
   try{
+
+    loadTheme();
+
     bindGlobalEvents();
+
     App.init();
 
     /*
